@@ -4,7 +4,12 @@
 		<title>Mini-Chat</title>
 	</head>
 	<body>
-		<form action="minichat_post.php" method="POST">
+		<?php
+		if ($_POST['username'] == "abcd" && $_POST['password'] == "misterroger")
+		{
+			
+			?>
+			<form action="minichat_post.php" method="POST">
 			<p><label>Pseudo : </label><input type="text" name="name"></p>
 			<p><label>Message : </label><input type="text" name="msg"></p>
 			<p><input type="submit" value="Envoyer" /></p>
@@ -19,6 +24,14 @@
 				echo '<p>' . htmlspecialchars($data['name']) . '</p>';
 				echo '<p>' . htmlspecialchars($data['msg']) . '</p>';
 			}
+		?>
+			<?php
+		}
+		else
+		{
+			echo 'Identifiant non reconnu.'
+			
+		}
 		?>
 	</body>
 </html>
